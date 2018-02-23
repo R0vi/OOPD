@@ -1,3 +1,5 @@
+package les0206Voorbereiding;
+
 public class School {
     private String naam;
 

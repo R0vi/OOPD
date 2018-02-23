@@ -1,3 +1,5 @@
+package les0206Voorbereiding;
+
 public class Student {
     private String naam;
     private int nummer;
