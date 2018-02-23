@@ -1,4 +1,4 @@
-package les0206Voorbereiding;
+package com.company;
 
 public class Main {
 

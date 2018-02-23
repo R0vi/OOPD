@@ -1,4 +1,4 @@
-package les0206Voorbereiding;
+package com.company;
 
 public class Student {
     private String naam;
@@ -10,5 +10,4 @@ public class Student {
         this.nummer = nummer;
         this.school = school;
     }
-
 }
