@@ -16,14 +16,17 @@ public class GraphicsEngine extends PApplet {
 
     public void setup() {
         Rechthoek r1 = new Rechthoek(0, 0, 10, 10);
-        Rechthoek r2 = new Rechthoek(20, 20, 10, 10);
-        wo.add(r1);
-        wo.add(r2);
+        Rechthoek r2 = new Rechthoek(r1.breedte - 5, -5, 10, 10);
+        WeergaveObjectContainer doos = new WeergaveObjectContainer(10,50,20,20);
+        doos.voegToe(r1);
+        doos.voegToe(r2);
+        wo.add(doos);
         HalloReageerder hr = new HalloReageerder();
-        r1.voegReageerderToe(hr);
+        doos.voegReageerderToe(hr);
     }
 
     public void draw() {
+        this.background(255);
         for (WeergaveObject o : wo) {
             o.geefWeer(this, 0 ,0);
         }
@@ -32,6 +35,35 @@ public class GraphicsEngine extends PApplet {
     public void mousePressed() {
         for (WeergaveObject o : wo) {
             o.geefMousePressedGebeurtenis(this.mouseX, this.mouseY);
+        }
+    }
+
+    public void keyPressed() {
+        switch (keyCode) {
+            case UP:
+                for (WeergaveObject o : wo) {
+                    o.setSnelheid(0, -1);
+                    o.doeStap();
+                }
+                break;
+            case DOWN:
+                for (WeergaveObject o : wo) {
+                    o.setSnelheid(0, 1);
+                    o.doeStap();
+                }
+                break;
+            case LEFT:
+                for (WeergaveObject o : wo) {
+                    o.setSnelheid(-1, 0);
+                    o.doeStap();
+                }
+                break;
+            case RIGHT:
+                for (WeergaveObject o : wo) {
+                    o.setSnelheid(1, 0);
+                    o.doeStap();
+                }
+                break;
         }
     }
 }
